@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>银龄小棉袄App</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.cn/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+    <!-- 页面1：首页 -->
+    <div class="page page-home active" id="page-home">
+      <header class="header header-main">
+        <h1 class="header-title">银龄小棉袄App</h1>
+        <p class="header-subtitle">爷爷奶奶好，我是您的贴心小棉袄</p>
+      </header>
+      <main class="main-content">
+        <div class="welcome-emoji">👋</div>
+        <div class="card-grid">
+          <div class="feature-card card-teach" onclick="navigateTo('teach')">
+            <div class="card-icon">📱</div>
+            <h3 class="card-title">手机教学</h3>
+            <p class="card-desc">教您用微信、扫码、支付等</p>
+          </div>
+          <div class="feature-card card-scam" onclick="navigateTo('scam')">
+            <div class="card-icon">🛡️</div>
+            <h3 class="card-title">防诈骗</h3>
+            <p class="card-desc">常见的骗局和防范方法</p>
+          </div>
+          <div class="feature-card card-chat" onclick="navigateTo('chat')">
+            <div class="card-icon">💬</div>
+            <h3 class="card-title">陪伴聊天</h3>
+            <p class="card-desc">和我说说话，聊聊天</p>
+          </div>
+        </div>
+        <div class="quick-tips">
+          <h3 class="tips-title">📌 今日温馨提示</h3>
+          <p class="tips-content">天气转凉，记得添加衣物哦！</p>
+        </div>
+      </main>
+    </div>
+
+    <!-- 页面2：手机教学页 -->
+    <!-- 页面2：手机教学页 -->
+    <div class="page page-teach" id="page-teach">
+      <header class="header">
+        <h1 class="page-title">📱 手机教学</h1>
+        <p class="page-subtitle">点击卡片查看详细步骤</p>
+      </header>
+
+      <main class="main-content">
+        <div class="tutorial-list">
+
+          <!-- 教程1：如何连接WiFi -->
+          <div class="tutorial-item" onclick="toggleTutorial(this)">
+            <div class="tutorial-header">
+              <span class="tutorial-icon">📶</span>
+              <span class="tutorial-name">如何连接WiFi</span>
+              <span class="tutorial-arrow">▼</span>
+            </div>
+            <div class="tutorial-content">
+              <div class="tutorial-step">
+                <span class="step-num">1</span>
+                <span class="step-text">打开手机，找到「设置」图标（齿轮形状）</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">2</span>
+                <span class="step-text">点击「设置」，找到「WiFi」或「无线网络」</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">3</span>
+                <span class="step-text">把「WiFi」开关点亮（变成蓝色）</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">4</span>
+                <span class="step-text">选择您家或认识的人的WiFi名称</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">5</span>
+                <span class="step-text">输入密码（注意区分大小写），点击「连接」</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 教程2：如何使用微信 -->
+          <div class="tutorial-item" onclick="toggleTutorial(this)">
+            <div class="tutorial-header">
+              <span class="tutorial-icon">💬</span>
+              <span class="tutorial-name">如何使用微信</span>
+              <span class="tutorial-arrow">▼</span>
+            </div>
+            <div class="tutorial-content">
+              <div class="tutorial-step">
+                <span class="step-num">1</span>
+                <span class="step-text">打开微信，点击右上角的「+」号</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">2</span>
+                <span class="step-text">点击「添加朋友」</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">3</span>
+                <span class="step-text">选择「微信号/手机号」</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">4</span>
+                <span class="step-text">输入对方的微信号或手机号</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">5</span>
+                <span class="step-text">点击「搜索」，找到后点击「添加」</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 教程3：如何打视频电话 -->
+          <div class="tutorial-item" onclick="toggleTutorial(this)">
+            <div class="tutorial-header">
+              <span class="tutorial-icon">📹</span>
+              <span class="tutorial-name">如何打视频电话</span>
+              <span class="tutorial-arrow">▼</span>
+            </div>
+            <div class="tutorial-content">
+              <div class="tutorial-step">
+                <span class="step-num">1</span>
+                <span class="step-text">打开微信，进入和家人的聊天界面</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">2</span>
+                <span class="step-text">点击右下角的「+」号</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">3</span>
+                <span class="step-text">点击「视频通话」</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">4</span>
+                <span class="step-text">等待对方接听就可以看到对方啦！</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 教程4：如何扫码支付 -->
+          <div class="tutorial-item" onclick="toggleTutorial(this)">
+            <div class="tutorial-header">
+              <span class="tutorial-icon">💳</span>
+              <span class="tutorial-name">如何扫码支付</span>
+              <span class="tutorial-arrow">▼</span>
+            </div>
+            <div class="tutorial-content">
+              <div class="tutorial-step">
+                <span class="step-num">1</span>
+                <span class="step-text">打开微信，点击右下角「我」</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">2</span>
+                <span class="step-text">点击「服务」（或「支付」）</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">3</span>
+                <span class="step-text">点击「收付款」</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">4</span>
+                <span class="step-text">点击「二维码」让别人扫</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">5</span>
+                <span class="step-text">或点击「扫码付」扫商家的码</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 教程5：如何网上挂号 -->
+          <div class="tutorial-item" onclick="toggleTutorial(this)">
+            <div class="tutorial-header">
+              <span class="tutorial-icon">🏥</span>
+              <span class="tutorial-name">如何网上挂号</span>
+              <span class="tutorial-arrow">▼</span>
+            </div>
+            <div class="tutorial-content">
+              <div class="tutorial-step">
+                <span class="step-num">1</span>
+                <span class="step-text">打开微信，搜索医院名称</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">2</span>
+                <span class="step-text">点击「预约挂号」或「当日挂号」</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">3</span>
+                <span class="step-text">选择科室（如：内科、外科）</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">4</span>
+                <span class="step-text">选择医生和时间</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">5</span>
+                <span class="step-text">确认预约，携带身份证就诊</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 教程6：如何打车 -->
+          <div class="tutorial-item" onclick="toggleTutorial(this)">
+            <div class="tutorial-header">
+              <span class="tutorial-icon">🚗</span>
+              <span class="tutorial-name">如何打车</span>
+              <span class="tutorial-arrow">▼</span>
+            </div>
+            <div class="tutorial-content">
+              <div class="tutorial-step">
+                <span class="step-num">1</span>
+                <span class="step-text">打开微信，点击「我」→「服务」</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">2</span>
+                <span class="step-text">找到「打车」小程序</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">3</span>
+                <span class="step-text">输入您的出发地和目的地</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">4</span>
+                <span class="step-text">选择车型，点击「呼叫」</span>
+              </div>
+              <div class="tutorial-step">
+                <span class="step-num">5</span>
+                <span class="step-text">等待司机接单，注意看车牌号</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    <!-- 页面3：防诈骗页 -->
+    <div class="page page-scam" id="page-scam">
+      <header class="header">
+        <h1 class="page-title">🛡️ 防诈骗知识</h1>
+        <p class="page-subtitle">保护自己，远离骗局</p>
+      </header>
+
+      <!-- 视频播放区域 -->
+      <div class="video-section" id="videoSection">
+        <div class="video-header">
+          <h3 class="video-title">🎬 防诈骗案例视频</h3>
+          <button class="video-close-btn" onclick="stopVideo()">✕</button>
+        </div>
+        <div class="video-player">
+          <iframe id="videoFrame" src="" frameborder="0" allowfullscreen="true"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        </div>
+      </div>
+
+      <main class="main-content">
+        <section class="section-block">
+          <h2 class="section-title">⚠️ 常见诈骗类型</h2>
+          <div class="scam-card" onclick="playVideo()">
+            <div class="scam-icon">👨‍💼</div>
+            <div class="scam-info">
+              <h3>冒充亲人诈骗</h3>
+              <p>骗子说"我是你孙子..."</p>
+              <span class="video-hint">▶ 点击观看案例视频</span>
+            </div>
+          </div>
+          <div class="scam-card">
+            <div class="scam-icon">👮</div>
+            <div class="scam-info">
+              <h3>冒充公检法诈骗</h3>
+              <p>公检法不会电话要钱！</p>
+            </div>
+          </div>
+          <div class="scam-card">
+            <div class="scam-icon">🎁</div>
+            <div class="scam-info">
+              <h3>中奖诈骗</h3>
+              <p>先交税再领奖？假的！</p>
+            </div>
+          </div>
+          <div class="scam-card">
+            <div class="scam-icon">💊</div>
+            <div class="scam-info">
+              <h3>保健品诈骗</h3>
+              <p>高价卖保健品！</p>
+            </div>
+          </div>
+        </section>
+        <section class="section-block">
+          <h2 class="section-title">📝 防骗口诀</h2>
+          <div class="tips-card">
+            <h3 class="tips-highlight">三不一多</h3>
+            <ul class="tips-list">
+              <li><span class="tip-icon">❌</span> 未知链接不点击</li>
+              <li><span class="tip-icon">❌</span> 陌生来电不轻信</li>
+              <li><span class="tip-icon">❌</span> 个人信息不透露</li>
+              <li><span class="tip-icon">✅</span> 转账汇款多核实</li>
+            </ul>
+          </div>
+        </section>
+        <section class="section-block">
+          <h2 class="section-title">🚨 被骗后怎么办</h2>
+          <div class="emergency-card">
+            <div class="emergency-item"><span class="emergency-num">1</span><span
+                class="emergency-text">立即拨打110报警</span></div>
+            <div class="emergency-item"><span class="emergency-num">2</span><span
+                class="emergency-text">保留聊天记录、短信等证据</span></div>
+            <div class="emergency-item"><span class="emergency-num">3</span><span
+                class="emergency-text">告诉家人，不要自己扛</span></div>
+            <div class="emergency-hotline"><span class="hotline-label">反诈热线</span><span class="hotline-num">96110</span>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- 页面4：陪伴聊天页 -->
+    <div class="page page-chat" id="page-chat">
+      <header class="header">
+        <h1 class="page-title">💬 陪伴聊天</h1>
+        <p class="page-subtitle">想说就说，我一直在您身边</p>
+      </header>
+      <main class="main-content chat-main">
+        <div class="chat-container" id="chatContainer">
+          <div class="chat-message bot-message">
+            <div class="message-avatar">🤖</div>
+            <div class="message-content">
+              <p>爷爷/奶奶好，有什么想跟我说的吗？</p>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <input type="text" class="chat-input" id="chatInput" placeholder="输入想说的话...">
+          <button class="chat-send-btn">发送</button>
+        </div>
+      </main>
+    </div>
+
+    <!-- 页面5：健康养生页 -->
+    <div class="page page-health" id="page-health">
+      <header class="header">
+        <h1 class="page-title">🌿 健康养生</h1>
+        <p class="page-subtitle">健康生活，快乐每一天</p>
+      </header>
+      <main class="main-content">
+        <section class="section-block">
+          <h2 class="section-title">🏃 适合老人的运动</h2>
+          <div class="health-cards">
+            <div class="health-card">
+              <div class="health-icon">🚶</div>
+              <h3>散步</h3>
+              <p>每天30分钟</p>
+            </div>
+            <div class="health-card">
+              <div class="health-icon">🧘</div>
+              <h3>太极拳</h3>
+              <p>锻炼平衡</p>
+            </div>
+            <div class="health-card">
+              <div class="health-icon">🏊</div>
+              <h3>游泳</h3>
+              <p>保护关节</p>
+            </div>
+            <div class="health-card">
+              <div class="health-icon">🎮</div>
+              <h3>手指操</h3>
+              <p>预防痴呆</p>
+            </div>
+          </div>
+        </section>
+        <section class="section-block">
+          <h2 class="section-title">🌸 四季养生</h2>
+          <div class="season-cards">
+            <div class="season-card spring"><span class="season-emoji">🌸</span>
+              <div class="season-info">
+                <h3>春季</h3>
+                <p>早睡早起，多晒太阳</p>
+              </div>
+            </div>
+            <div class="season-card summer"><span class="season-emoji">☀️</span>
+              <div class="season-info">
+                <h3>夏季</h3>
+                <p>防暑降温，补充水分</p>
+              </div>
+            </div>
+            <div class="season-card autumn"><span class="season-emoji">🍂</span>
+              <div class="season-info">
+                <h3>秋季</h3>
+                <p>润燥养肺，多吃梨</p>
+              </div>
+            </div>
+            <div class="season-card winter"><span class="season-emoji">❄️</span>
+              <div class="season-info">
+                <h3>冬季</h3>
+                <p>保暖防寒，适当进补</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section-block">
+          <h2 class="section-title">💊 慢性病日常护理</h2>
+          <div class="disease-list">
+            <div class="disease-item"><span class="disease-icon">❤️</span>
+              <div class="disease-info">
+                <h3>高血压</h3>
+                <p>少盐少油，按时服药</p>
+              </div>
+            </div>
+            <div class="disease-item"><span class="disease-icon">🩸</span>
+              <div class="disease-info">
+                <h3>糖尿病</h3>
+                <p>控制饮食，定期检查</p>
+              </div>
+            </div>
+            <div class="disease-item"><span class="disease-icon">🦴</span>
+              <div class="disease-info">
+                <h3>骨质疏松</h3>
+                <p>补钙补维D，防跌倒</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <nav class="bottom-nav">
+      <div class="nav-item active" onclick="navigateTo('home')"><span class="nav-icon">🏠</span><span
+          class="nav-text">首页</span></div>
+      <div class="nav-item" onclick="navigateTo('teach')"><span class="nav-icon">📖</span><span
+          class="nav-text">教学</span></div>
+      <div class="nav-item" onclick="navigateTo('scam')"><span class="nav-icon">🛡️</span><span
+          class="nav-text">防骗</span></div>
+      <div class="nav-item" onclick="navigateTo('chat')"><span class="nav-icon">💬</span><span
+          class="nav-text">聊天</span></div>
+      <div class="nav-item" onclick="navigateTo('health')"><span class="nav-icon">🌿</span><span
+          class="nav-text">健康</span></div>
+    </nav>
+  </div>
+
+  <script>
+    // 页面导航
+    function navigateTo(page) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page-' + page)?.classList.add('active');
+      document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+      const navMap = { 'home': '🏠', 'teach': '📖', 'scam': '🛡️', 'chat': '💬', 'health': '🌿' };
+      document.querySelectorAll('.nav-item').forEach(item => {
+        if (item.querySelector('.nav-icon').textContent === navMap[page]) item.classList.add('active');
+      });
+      window.scrollTo(0, 0);
+    }
+
+    // 教程展开/收起
+    function toggleTutorial(element) {
+      element.classList.toggle('expanded');
+    }
+
+
+
+    // 视频播放控制
+    const VIDEO_SRC = 'https://player.bilibili.com/player.html?bvid=BV1hM4y1a78b&page=1';
+
+    function playVideo() {
+      const videoSection = document.getElementById('videoSection');
+      const videoFrame = document.getElementById('videoFrame');
+      if (videoSection && videoFrame) {
+        videoSection.style.display = 'block';
+        if (videoFrame.src !== VIDEO_SRC) {
+          videoFrame.src = VIDEO_SRC;
+        }
+      }
+    }
+
+    function stopVideo() {
+      const videoSection = document.getElementById('videoSection');
+      const videoFrame = document.getElementById('videoFrame');
+      if (videoSection && videoFrame) {
+        videoFrame.src = '';
+        videoSection.style.display = 'none';
+      }
+    }
+
+  </script>
+  <script>
+    const API_KEY = "ark-7fef3d09-2e9f-4531-8253-14d9fa329212-2f535";
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const input = document.querySelector(".chat-input");
+      const sendBtn = document.querySelector(".chat-send-btn");
+      const chatContainer = document.getElementById("chatContainer");
+
+      async function sendToDoubao(text) {
+        try {
+          const res = await fetch("https://ark.cn-beijing.volces.com/api/v3/responses", {
+            method: "POST",
+            headers: {
+              "Authorization": `Bearer ${API_KEY}`,
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              model: "doubao-seed-2-0-pro-260215",
+              input: [
+                {
+                  role: "system",
+                  content: "你是银龄小棉袄，专为老年人服务，说话亲切、简短、口语化，控制在50字以内。"
+                },
+                {
+                  role: "user",
+                  content: [
+                    {
+                      type: "input_text",
+                      text: text
+                    }
+                  ]
+                }
+              ]
+            })
+          });
+
+          const data = await res.json();
+          console.log("完整返回数据：", data);
+
+          // 正确解析API返回的数据
+          let answer = "";
+
+          // 正确格式: data.output[1].content[0].text
+          // output数组包含两个元素：[0]是reasoning思考过程，[1]是message实际回复
+          if (data.output && Array.isArray(data.output)) {
+            const messageOutput = data.output.find(item => item.type === 'message');
+            if (messageOutput && messageOutput.content && Array.isArray(messageOutput.content)) {
+              const textContent = messageOutput.content.find(c => c.type === 'output_text');
+              if (textContent && textContent.text) {
+                answer = textContent.text;
+              }
+            }
+          }
+
+          return answer || "我没太明白，您再说一遍好吗？";
+        } catch (e) {
+          console.error("调用错误：", e);
+          return "网络有点慢，我还在听您说话呢！";
+        }
+      }
+
+      async function handleSend() {
+        const text = input.value.trim();
+        if (!text) return;
+
+        // 用户消息
+        chatContainer.innerHTML += `
+    <div class="chat-message user-message">
+      <div class="message-content">${text}</div>
+      <div class="message-avatar">👴</div>
+    </div>`;
+        input.value = "";
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+
+        // 思考状态
+        const loadingMsg = document.createElement("div");
+        loadingMsg.className = "chat-message bot-message";
+        loadingMsg.innerHTML = `
+      <div class="message-avatar">🤖</div>
+      <div class="message-content">思考中...</div>
+    `;
+        chatContainer.appendChild(loadingMsg);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+
+        // 获取真实回复
+        const reply = await sendToDoubao(text);
+        loadingMsg.querySelector(".message-content").textContent = reply;
+      }
+
+      sendBtn.addEventListener("click", handleSend);
+      input.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") handleSend();
+      });
+    });
+  </script>
+</body>
+
+</html>
