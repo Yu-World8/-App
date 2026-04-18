@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>银龄小棉袄App</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.cn/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  
 </head>
 
 <body>
@@ -262,7 +262,7 @@
       <main class="main-content">
         <section class="section-block">
           <h2 class="section-title">⚠️ 常见诈骗类型</h2>
-          <div class="scam-card" onclick="playVideoFamily()">
+          <div class="scam-card" onclick="playVideo()">
             <div class="scam-icon">👨‍💼</div>
             <div class="scam-info">
               <h3>冒充亲人诈骗</h3>
@@ -270,28 +270,25 @@
               <span class="video-hint">▶ 点击观看案例视频</span>
             </div>
           </div>
-          <div class="scam-card" onclick="playVideoPolice()">
+          <div class="scam-card">
             <div class="scam-icon">👮</div>
             <div class="scam-info">
               <h3>冒充公检法诈骗</h3>
               <p>公检法不会电话要钱！</p>
-              <span class="video-hint">▶ 点击观看案例视频</span>
             </div>
           </div>
-          <div class="scam-card" onclick="playVideoLottery()">
+          <div class="scam-card">
             <div class="scam-icon">🎁</div>
             <div class="scam-info">
               <h3>中奖诈骗</h3>
               <p>先交税再领奖？假的！</p>
-              <span class="video-hint">▶ 点击观看案例视频</span>
             </div>
           </div>
-          <div class="scam-card" onclick="playVideoHealth()">
+          <div class="scam-card">
             <div class="scam-icon">💊</div>
             <div class="scam-info">
               <h3>保健品诈骗</h3>
               <p>高价卖保健品！</p>
-              <span class="video-hint">▶ 点击观看案例视频</span>
             </div>
           </div>
         </section>
@@ -351,46 +348,29 @@
         <h1 class="page-title">🌿 健康养生</h1>
         <p class="page-subtitle">健康生活，快乐每一天</p>
       </header>
-
-      <!-- 视频播放区域 -->
-      <div class="video-section" id="healthVideoSection">
-        <div class="video-header">
-          <h3 class="video-title">🎬 养生教学视频</h3>
-          <button class="video-close-btn" onclick="stopHealthVideo()">✕</button>
-        </div>
-        <div class="video-player">
-          <iframe id="healthVideoFrame" src="" frameborder="0" allowfullscreen="true"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-        </div>
-      </div>
-
       <main class="main-content">
         <section class="section-block">
           <h2 class="section-title">🏃 适合老人的运动</h2>
           <div class="health-cards">
-            <div class="health-card" onclick="playHealthVideoWalking()">
+            <div class="health-card">
               <div class="health-icon">🚶</div>
               <h3>散步</h3>
               <p>每天30分钟</p>
-              <span class="video-hint">▶ 观看教学视频</span>
             </div>
-            <div class="health-card" onclick="playHealthVideoTaiji()">
+            <div class="health-card">
               <div class="health-icon">🧘</div>
               <h3>太极拳</h3>
               <p>锻炼平衡</p>
-              <span class="video-hint">▶ 观看教学视频</span>
             </div>
-            <div class="health-card" onclick="playHealthVideoSwim()">
+            <div class="health-card">
               <div class="health-icon">🏊</div>
               <h3>游泳</h3>
               <p>保护关节</p>
-              <span class="video-hint">▶ 观看教学视频</span>
             </div>
-            <div class="health-card" onclick="playHealthVideoFinger()">
+            <div class="health-card">
               <div class="health-icon">🎮</div>
               <h3>手指操</h3>
               <p>预防痴呆</p>
-              <span class="video-hint">▶ 观看教学视频</span>
             </div>
           </div>
         </section>
@@ -485,33 +465,17 @@
 
 
     // 视频播放控制
-    function playVideo(videoUrl) {
+    const VIDEO_SRC = 'https://player.bilibili.com/player.html?bvid=BV1hM4y1a78b&page=1';
+
+    function playVideo() {
       const videoSection = document.getElementById('videoSection');
       const videoFrame = document.getElementById('videoFrame');
       if (videoSection && videoFrame) {
         videoSection.style.display = 'block';
-        videoFrame.src = videoUrl || 'https://player.bilibili.com/player.html?bvid=BV1hM4y1a78b&page=1';
+        if (videoFrame.src !== VIDEO_SRC) {
+          videoFrame.src = VIDEO_SRC;
+        }
       }
-    }
-
-    // 冒充亲人诈骗视频
-    function playVideoFamily() {
-      playVideo('https://player.bilibili.com/player.html?bvid=BV1hM4y1a78b&page=1');
-    }
-
-    // 冒充公检法诈骗视频
-    function playVideoPolice() {
-      playVideo('https://player.bilibili.com/player.html?bvid=BV1Q5411X7JN&page=1');
-    }
-
-    // 中奖诈骗视频
-    function playVideoLottery() {
-      playVideo('https://player.bilibili.com/player.html?bvid=BV1pGUGYPEd1&page=1');
-    }
-
-    // 保健品诈骗视频
-    function playVideoHealth() {
-      playVideo('https://player.bilibili.com/player.html?bvid=BV1Ua411H7bN&page=1');
     }
 
     function stopVideo() {
@@ -521,45 +485,6 @@
         videoFrame.src = '';
         videoSection.style.display = 'none';
       }
-    }
-
-    // 养生视频播放控制
-    function playHealthVideo(videoUrl) {
-      const videoSection = document.getElementById('healthVideoSection');
-      const videoFrame = document.getElementById('healthVideoFrame');
-      if (videoSection && videoFrame) {
-        videoSection.style.display = 'block';
-        videoFrame.src = videoUrl || 'https://player.bilibili.com/player.html?bvid=BV1hM4y1a78b&page=1';
-      }
-    }
-
-    function stopHealthVideo() {
-      const videoSection = document.getElementById('healthVideoSection');
-      const videoFrame = document.getElementById('healthVideoFrame');
-      if (videoSection && videoFrame) {
-        videoFrame.src = '';
-        videoSection.style.display = 'none';
-      }
-    }
-
-    // 散步教学视频
-    function playHealthVideoWalking() {
-      playHealthVideo('https://player.bilibili.com/player.html?bvid=BV1eP411u7ay&page=1');
-    }
-
-    // 太极拳教学视频
-    function playHealthVideoTaiji() {
-      playHealthVideo('https://player.bilibili.com/player.html?bvid=BV1GrpuzdEQj&page=1');
-    }
-
-    // 游泳教学视频
-    function playHealthVideoSwim() {
-      playHealthVideo('https://player.bilibili.com/player.html?bvid=BV1kzoZYDEJG&page=1');
-    }
-
-    // 手指操教学视频
-    function playHealthVideoFinger() {
-      playHealthVideo('https://player.bilibili.com/player.html?bvid=BV1Ag411o7WR&page=1');
     }
 
   </script>
