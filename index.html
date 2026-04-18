@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>银龄小棉袄App</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.cn/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  
 </head>
 
 <body>
@@ -496,8 +496,39 @@
       const sendBtn = document.querySelector(".chat-send-btn");
       const chatContainer = document.getElementById("chatContainer");
 
-      async function sendToDoubao(text) {
+      // 保存对话历史记录
+      const conversationHistory = [];
+
+      async function sendToDoubao(text, history) {
         try {
+          // 构建完整的输入，包含对话历史
+          const inputData = [
+            {
+              role: "system",
+              content: "你是银龄小棉袄，专为老年人服务，说话亲切、简短、口语化，控制在50字以内。称呼用户时统一使用'爷爷奶奶'，不要使用'叔叔阿姨'等其他称呼。请结合上下文对话进行回复。"
+            }
+          ];
+
+          // 添加历史对话
+          history.forEach(item => {
+            inputData.push({
+              role: item.role,
+              content: [{
+                type: item.role === "assistant" ? "output_text" : "input_text",
+                text: item.content
+              }]
+            });
+          });
+
+          // 添加当前用户消息
+          inputData.push({
+            role: "user",
+            content: [{
+              type: "input_text",
+              text: text
+            }]
+          });
+
           const res = await fetch("https://ark.cn-beijing.volces.com/api/v3/responses", {
             method: "POST",
             headers: {
@@ -506,21 +537,7 @@
             },
             body: JSON.stringify({
               model: "doubao-seed-2-0-pro-260215",
-              input: [
-                {
-                  role: "system",
-                  content: "你是银龄小棉袄，专为老年人服务，说话亲切、简短、口语化，控制在50字以内。"
-                },
-                {
-                  role: "user",
-                  content: [
-                    {
-                      type: "input_text",
-                      text: text
-                    }
-                  ]
-                }
-              ]
+              input: inputData
             })
           });
 
@@ -572,9 +589,20 @@
         chatContainer.appendChild(loadingMsg);
         chatContainer.scrollTop = chatContainer.scrollHeight;
 
-        // 获取真实回复
-        const reply = await sendToDoubao(text);
+        // 获取真实回复（传入对话历史）
+        const reply = await sendToDoubao(text, conversationHistory);
         loadingMsg.querySelector(".message-content").textContent = reply;
+
+        // 更新对话历史：先添加用户消息，再添加AI回复
+        conversationHistory.push(
+          { role: "user", content: text },
+          { role: "assistant", content: reply }
+        );
+
+        // 限制历史记录数量，避免过长（保留最近20条）
+        if (conversationHistory.length > 20) {
+          conversationHistory.splice(0, conversationHistory.length - 20);
+        }
       }
 
       sendBtn.addEventListener("click", handleSend);
